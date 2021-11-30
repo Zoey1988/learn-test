@@ -1,14 +1,11 @@
 <template>
-  <articles-list :items="items" />
+  <div />
 </template>
 
 <script>
-import ArticlesList from '~/components/ArticlesList.vue'
-
 export default {
-  components: { ArticlesList },
-  data: () => ({
-    items: [{ id: 1, title: 'salam', text: 'halet chetore' }],
-  }),
-}
+  beforeCreate() {
+    this.$router.push({ name: 'articles' });
+  },
+};
 </script>

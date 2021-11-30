@@ -1,14 +1,20 @@
 <template>
-  <articles-list :items="items" />
+  <articles-list :items="articles" />
 </template>
 
 <script>
-import ArticlesList from '~/components/ArticlesList.vue'
+import ArticlesList from '~/components/articles-list/ArticlesList.vue';
 
 export default {
   components: { ArticlesList },
-  data: () => ({
-    items: [{ id: 1, title: 'salam', text: 'halet chetore' }],
-  }),
-}
+  async asyncData({ $content, params }) {
+    const articles = await $content('articles')
+      .sortBy('createdAt', 'asc')
+      .fetch();
+
+    return {
+      articles,
+    };
+  },
+};
 </script>
