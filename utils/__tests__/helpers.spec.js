@@ -10,7 +10,9 @@ import { isCssColor, upperFirst } from '..';
 
 //  💰 check if it return Ali for 'ali'  *** https://jestjs.io/docs/expect#tobevalue
 
-//  💰 check if it won't return alex form 'Alex'  *** https://jestjs.io/docs/expect#not
+//  💰 check if it won't return alex for 'Alex'  *** https://jestjs.io/docs/expect#not
+
+//  💰 check if it return Front End for 'front end'  *** https://jestjs.io/docs/expect#not
 
 // isCssColor
 

@@ -3,7 +3,12 @@ export function isCssColor(color) {
 }
 
 export function upperFirst(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
+  const strToArr = str.split(' ');
+  return strToArr
+    .map((word) => {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join(' ');
 }
 
 export function truncate(value, length) {
