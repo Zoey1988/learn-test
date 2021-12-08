@@ -25,6 +25,13 @@ export const formatArticleDate = (articleDate) => {
   const date = d.getDate();
   const monthName = months[d.getMonth()];
 
-  const formatted = `${year}, ${monthName} ${date}`;
+  const now = new Date();
+  const currentYear = now.getFullYear();
+
+  const formatted =
+    currentYear === year
+      ? `${monthName} ${date}`
+      : `${year}, ${monthName} ${date}`;
+
   return formatted;
 };

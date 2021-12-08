@@ -9,7 +9,7 @@
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint": "yarn lint:js",
-    "test": "jest --watch"
+    "test": "jest"
   },
   "dependencies": {
     "@nuxt/content": "^1.14.0",
