@@ -25,3 +25,16 @@ import { isCssColor, upperFirst } from '..';
 //
 
 // code here 🔥
+
+describe('test all helpers', () => {
+  test('upperTest', () => {
+    expect(upperFirst('ali')).toBe('Ali');
+    expect(upperFirst('Alex')).not.toBe('alex');
+    expect(upperFirst('front end')).toBe('Front End');
+  });
+
+  test('isCssColor', () => {
+    expect(isCssColor('#ddd')).toBeTruthy();
+    expect(isCssColor(null)).toBeFalsy();
+  });
+});
