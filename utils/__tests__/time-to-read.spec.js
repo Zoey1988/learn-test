@@ -19,3 +19,14 @@ import { getTimeToRead } from '..';
 // https://jestjs.io/docs/expect#tothrowerror
 
 // code here 🔥
+
+describe('Testing getTimeToRead', () => {
+  it('should work', () => {
+    expect(getTimeToRead(3)).toBe('3 min read');
+    expect(getTimeToRead(60)).toBe('1 hour read');
+    expect(getTimeToRead(120)).toBe('2 hours read');
+    expect(() => {
+      getTimeToRead(1620);
+    }).toThrowError('article');
+  });
+});
