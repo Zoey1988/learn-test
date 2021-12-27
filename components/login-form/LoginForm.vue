@@ -1,27 +1,25 @@
 <template>
-  <form @submit="handleSubmit">
-    <div class="mb-4">
-      <label for="username-field">Username</label>
-      <b-input
-        id="username-field"
-        v-model="username"
+  <validation-observer ref="observer" v-slot="{ handleSubmit }">
+    <b-form @submit.stop.prevent="handleSubmit(onSubmit)">
+      <y-input 
+        :value.sync="username"
+        class="mb-4"
         name="username"
-        type="text"
+        label="Username"
+        :rules="{ required: true, min: 6, alpha: true }"
       />
-    </div>
-    <div class="mb-4">
-      <label for="password-field">Password</label>
-      <b-input
-        id="password-field"
-        v-model="password"
+      <y-input 
+        :value.sync="password"
+        class="mb-4"
         name="password"
+        label="Password"
         type="password"
       />
-    </div>
-    <div>
-      <b-button type="submit" :disabled="loading">Submit</b-button>
-    </div>
-  </form>
+      <div>
+        <b-button type="submit" :disabled="loading">Submit</b-button>
+      </div>
+    </b-form>
+  </validation-observer>
 </template>
 
 <script>
@@ -33,7 +31,7 @@ export default {
     loading: false,
   }),
   methods: {
-    handleSubmit(e) {
+    onSubmit(e) {
       e.preventDefault();
       this.loading = true;
       setTimeout(() => {
