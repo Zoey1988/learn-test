@@ -1,6 +1,6 @@
 <template>
   <validation-observer ref="observer" v-slot="{ handleSubmit }">
-    <b-form @submit.stop.prevent="handleSubmit(onSubmit)">
+    <b-form class="login-form" @submit.stop.prevent="handleSubmit(onSubmit)">
       <y-input 
         :value.sync="username"
         class="mb-4"
@@ -32,10 +32,9 @@ export default {
   }),
   methods: {
     onSubmit(e) {
-      e.preventDefault();
       this.loading = true;
       setTimeout(() => {
-        this.loading = this.$store.commit('login');
+        this.loading = this.$store.dispatch('login');
         this.$router.push({ name: 'articles' });
       }, 1000);
     },

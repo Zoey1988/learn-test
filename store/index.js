@@ -10,3 +10,12 @@ export const mutations = {
     state.isLoggedIn = false;
   },
 };
+
+export const actions = {
+  login({ commit }) {
+    commit('login')
+  },
+  logout({ commit }) {
+    commit('logout')
+  }
+}

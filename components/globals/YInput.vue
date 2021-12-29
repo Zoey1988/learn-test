@@ -1,6 +1,7 @@
 <template>
     <validation-provider 
         v-slot="validationContext"
+        ref="provider"
         :name="name"
         :rules="rules"
     >

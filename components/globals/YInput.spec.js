@@ -1,9 +1,8 @@
 import { mount, createLocalVue } from "@vue/test-utils";
-import { BootstrapVue } from 'bootstrap-vue';
-import YInput from "~/components/y-input/YInput.vue";
+import YInput from "~/components/globals/YInput.vue";
 
 const localVue = createLocalVue();
-localVue.use(BootstrapVue);
+// 💰 0) add required plugins (like BootstrapVue)
 
 describe("YInput.vue", () => {
     test("mount", () => {
@@ -29,16 +28,8 @@ describe("YInput.vue", () => {
         // 💰 5) check if input has proper value
         // 💰 6) destroy wrapper
     });
-    test("test rules", async () => {
-        // 🧭🧭 time: 10 minutes
-        // 💰 1) mount YInput element
-        // 💰 2) pass it required
-        // 💰 3) pass 'rules' prop like: ```:rules={ required: true, min: 6, alpha: true }```
-        // 💰 4) set YInput value an invalid value
-        // 💰 5) check if proper error has been shown
-        // 💰 6) destroy wrapper
-    });
 });
 
 // https://vue-test-utils.vuejs.org/guides/#getting-started
 // https://vue-test-utils.vuejs.org/api/wrapper/#wrapper
+// https://vee-validate.logaretm.com/v3/advanced/testing.html#testing-caveats
