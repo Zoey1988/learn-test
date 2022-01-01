@@ -1,12 +1,12 @@
 <template>
   <validation-observer ref="observer" v-slot="{ handleSubmit }">
-    <b-form class="login-form" @submit.stop.prevent="handleSubmit(onSubmit)">
+    <b-form class="login-form" @submit.prevent="handleSubmit(onSubmit)">
       <y-input 
         :value.sync="username"
         class="mb-4"
         name="username"
         label="Username"
-        :rules="{ required: true, min: 6, alpha: true }"
+        :rules="{ required: true, alpha: true, min: 6 }"
       />
       <y-input 
         :value.sync="password"
@@ -31,10 +31,11 @@ export default {
     loading: false,
   }),
   methods: {
-    onSubmit(e) {
+    onSubmit() {
       this.loading = true;
       setTimeout(() => {
-        this.loading = this.$store.dispatch('login');
+        this.$store.dispatch('login');
+        this.loading = false;
         this.$router.push({ name: 'articles' });
       }, 1000);
     },

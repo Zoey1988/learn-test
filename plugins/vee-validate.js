@@ -1,5 +1,5 @@
 import { extend } from "vee-validate";
-import { required, min, alpha } from "vee-validate/dist/rules";
+import { required, min, alpha } from "vee-validate/dist/rules.umd.js";
 
 extend("alpha", {
     ...alpha,
