@@ -8,17 +8,13 @@ module.exports = {
   transform: {
     '^.+\\.js$': 'babel-jest',
     '.*\\.(vue)$': 'vue-jest',
-    'vee-validate/dist/rules': 'babel-jest',
   },
-  transformIgnorePatterns: [
-    'node_modules/(?!vee-validate/dist/rules)',
-  ],
   collectCoverage: true,
   collectCoverageFrom: [
     '<rootDir>/components/**/*.vue',
-    // '<rootDir>/pages/**/*.vue',
-    // '<rootDir>/utils/**/*.js',
-    '<rootDir>/store/*.js',
+    '<rootDir>/pages/**/*.vue',
+    '<rootDir>/utils/**/*.js',
+    '<rootDir>/store/**/*.js',
   ],
   testEnvironment: 'jsdom',
 };
