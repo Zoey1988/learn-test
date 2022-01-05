@@ -5,7 +5,12 @@
     </b-card-title>
     <div class="my-3 text-secondary">
       {{ text }}
-      <b-button :to="article.path" variant="outline-secondary" size="sm">
+      <b-button
+        :to="article.path"
+        variant="outline-secondary"
+        size="sm"
+        :data-cy="`article_${article.slug}`"
+      >
         read more
       </b-button>
     </div>

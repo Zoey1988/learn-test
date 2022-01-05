@@ -1,14 +1,14 @@
 <template>
   <validation-observer ref="observer" v-slot="{ handleSubmit }">
     <b-form class="login-form" @submit.stop.prevent="handleSubmit(onSubmit)">
-      <y-input 
+      <y-input
         :value.sync="username"
         class="mb-4"
         name="username"
         label="Username"
         :rules="{ required: true, min: 6, alpha: true }"
       />
-      <y-input 
+      <y-input
         :value.sync="password"
         class="mb-4"
         name="password"
@@ -16,7 +16,7 @@
         type="password"
       />
       <div>
-        <b-button type="submit" :disabled="loading">Submit</b-button>
+        <b-button type="submit" :disabled="loading"> Submit </b-button>
       </div>
     </b-form>
   </validation-observer>
