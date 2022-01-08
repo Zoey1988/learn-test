@@ -62,7 +62,34 @@ describe('test user log in', () => {
   // links:
   // https://docs.cypress.io/api/cypress-api/custom-commands#Syntax
 
-  it('test if user types correct data', () => {});
+  beforeEach(() => {
+    cy.visit('/login');
+  });
 
-  it('test if user types wrong data', () => {});
+  // 1)
+  it('test if user types correct data', () => {
+    cy.getByDataCy('username').type('zeinab');
+
+    cy.getByDataCy('password').type('password');
+
+    cy.getByDataCy('login_submit').click();
+
+    cy.url().should('match', /\/articles/);
+  });
+
+  // 2
+
+  it('test if user types wrong data', () => {
+    cy.getByDataCy('username').type('zei');
+
+    cy.getByDataCy('username')
+      .find('.invalid-feedback')
+      .should('have.css', 'display', 'block');
+
+    cy.getByDataCy('password').type('password');
+
+    cy.getByDataCy('login_submit').click();
+
+    cy.url().should('not.match', /\/articles/);
+  });
 });

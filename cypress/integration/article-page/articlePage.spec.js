@@ -23,5 +23,27 @@ describe('test user log in', () => {
 
   // 💰 check if you are in articles page
 
-  it('test if user types correct data', () => {});
+  beforeEach(() => {
+    cy.intercept('GET', '**/posts/*/comments*', {
+      fixture: 'comments.json',
+    }).as('getComments');
+
+    cy.visit('/articles');
+  });
+
+  it('test if user types correct data', () => {
+    cy.getByDataCy('article_article1').click();
+
+    cy.url().should('match', /\/articles\/article1/);
+
+    cy.get('h1').should('contain.text', 'article One');
+
+    cy.wait('@getComments').then(() => {
+      cy.get('.comment-item').should('have.length', 1);
+    });
+
+    cy.go(-1);
+
+    cy.location('pathname').should('include', 'articles');
+  });
 });
